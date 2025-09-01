@@ -8,3 +8,68 @@ html, body, #root {
 body {
   background-color: #343541;
 }
+.auth-container{
+  display:flex;
+  justify-content: center;/*algin all the flex items in the center of the axis*/
+  align-items: center;/*inside each flex item*/
+  min-height: 100vh;
+
+}
+.auth-form{
+  display: flex;
+  flex-direction: column;
+  width: 300px; ;
+}
+.auth-label{
+  font-weight: bold;
+}
+.authbutton{
+  margin-top: 30px;
+}
+.auth-input{
+  min-height: 30px;
+}
+.home-layout{
+  display: flex;
+  height: 100vh;
+}
+.sidebar{
+  width: 220px;
+  background-color:#39443f ;
+  color:white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+  .sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar li {
+  margin: 15px 0;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+.sidebar li:hover {
+  background-color: #40916c;
+}
+.home-container {
+  flex: 1; /* so it fills the remaining space */
+  padding: 20px;
+  background-image: url("src/assets/bg.jpg"); /* adjust path */
+  background-size: cover;  /* makes image cover the container */
+  background-position: center; /* centers the image */
+  background-repeat: no-repeat;
+  color: white; 
+}
+
+
+.welcome-text h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}

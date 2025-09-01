@@ -18,11 +18,18 @@ export default function Chatbot() {
     setMessages((prev) => [...prev, { sender: "user", text: userMessage }]);
     setInput("");
     setLoading(true);
-
-    try {
-      const res = await fetch(
-        `${API_URL}?sessionId=${sessionId}&userInput=${encodeURIComponent(userMessage)}`
-      );
+try {
+    const res = await fetch("http://localhost:5000/coordinator", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        session_id: 123,
+        user_prompt: userMessage,
+      }),
+    });
       const data = await res.json();
 
       setMessages((prev) => [...prev, { sender: "bot", text: data.response }]);
@@ -42,7 +49,12 @@ export default function Chatbot() {
   return (
     <div style={styles.page}>
       {/* Header */}
-      <header style={styles.header}>ChatGPT Clone</header>
+          <header style={styles.header}>
+            <div style={styles.headerTitle}>PRO-FARM AI</div>
+            <div style={styles.tagline}>
+              Helping you partner with relevant markets & achieve sustainable farming
+            </div>
+          </header>
 
       {/* Chat messages */}
       <div style={styles.chatContainer}>
@@ -109,12 +121,29 @@ chatContainer: {
 
 
   header: {
-    background: "#202123",
-    padding: "15px 20px",
-    fontSize: "18px",
-    fontWeight: "600",
-    borderBottom: "1px solid #14d537ff",
-  },
+  background: "#202123",
+  padding: "15px 20px",
+  borderBottom: "1px solid #14d537ff",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  textAlign: "center",
+},
+
+headerTitle: {
+  fontSize: "22px",
+  fontWeight: "700",
+  color: "#fff",
+  marginBottom: "4px",
+},
+
+tagline: {
+  fontSize: "14px",
+  color: "#a1a1a1", // Slightly gray for softer look
+  maxWidth: "90%",
+  lineHeight: "1.4",
+},
+
   // chatContainer: {
   //   flex: 1,
   //   padding: "20px",
