@@ -1,0 +1,233 @@
+/* ---------- GLOBAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Reem Kufi", sans-serif !important;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  filter: brightness(0.6);
+}
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #0b3d2e, #145a32, #1e7a46);
+  color: #fff;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90px;
+  padding: 0 2rem;
+}
+
+
+
+.navbar-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar-links-container a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.navbar-links-container a:hover {
+  color: #f4d03f; /* gold hover */
+}
+
+.navbar-menu-container {
+  display: none;
+}
+
+.navbar-menu-container svg {
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------- HOME / HERO SECTION ---------- */
+.home-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  flex-wrap: wrap;
+}
+
+.home-text-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.primary-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  color: white;
+  max-width: 600px;
+}
+
+.primary-text {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  max-width: 500px;
+  margin: 1.5rem 0rem;
+  color: #e0e0e0;
+}
+
+.secondary-button {
+  padding: 1rem 2.5rem;
+  background-color: #f4d03f;
+  border: none;
+  border-radius: 5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #0b3d2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+.secondary-button svg {
+  margin-left: 0.75rem;
+  font-size: 1.5rem;
+}
+.secondary-button:hover {
+  background-color: #f1c40f;
+}
+
+.home-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------- ABOUT SECTION ---------- */
+.about-section-container {
+  margin: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  flex-wrap: wrap;
+}
+.about-section-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.about-section-text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+.primary-subheading {
+  font-weight: 700;
+  color: #f4d03f;
+  font-size: 1.2rem;
+}
+.about-buttons-container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+.about-section-text-container h1 {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- FOOTER ---------- */
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 4rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-logo-container img {
+  max-width: 100px;
+}
+
+.footer-icons {
+  margin-top: 1.5rem;
+}
+
+.footer-icons svg {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  color: #f4d03f;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer-icons svg:hover {
+  color: white;
+}
+
+.footer-section-two {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  color: white;
+  font-weight: 500;
+}
+.footer-section-columns {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+.footer-section-columns span {
+  margin: 0.25rem 0rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-section-columns span:hover {
+  color: #f4d03f;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 800px) {
+  .navbar-links-container {
+    display: none;
+  }
+  .navbar-menu-container {
+    display: flex;
+  }
+  .home-banner-container,
+  .about-section-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .secondary-button {
+    margin-top: 1rem;
+  }
+  .footer-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-section-two {
+    justify-content: center;
+  }
+}

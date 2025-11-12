@@ -1,63 +1,69 @@
-import React, {useState} from "react";//it is an object which consist of all react apis , for named import use {}
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import '../App.css' ;
-export default function Authform({mode, onSubmit}){
-    const [username , setUsername]=useState("");//it returns a array not a object
-    const [password , setPassword]= useState("");
+import "../App.css";
 
+import user_icon from "../assets/person.png";
+import password_icon from "../assets/password.png";
 
-const handleSubmit=(e) => {
+export default function Authform({ mode, onSubmit }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-      
     onSubmit({ username, password });
   };
 
-return (
-  <div className="auth-container">
-    <form onSubmit={handleSubmit} className="auth-form">
-      <h2 >
-        {mode === 'login' ? 'Login' : 'Register'}
-      </h2>
-            <label className="auth-label">Username:</label>
+  return (
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="header">
+          <div className="text">
+            {mode === "login" ? "Login" : "Sign Up"}
+          </div>
+          <div className="underline"></div>
+        </div>
 
-         <input
-        type="text"
-        value={username}
-        onChange={(e)=>setUsername(e.target.value)}
-        required
-        className="auth-input"
-        />
-              <label className="auth-label">Password:</label>
+        <div className="inputs">
+          <div className="input">
+            <img src={user_icon} alt="User" />
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
 
-        <input
-        type="password"
-        value={password}
-        onChange={(e)=>setPassword(e.target.value)}
-        required
-        className="auth-input"
-        
-        />
+          <div className="input">
+            <img src={password_icon} alt="Password" />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+        </div>
 
-        
-        <button
-        className="authbutton"
-        type="submit"
-        >
-{mode ==="login" ? "login" :"register"} 
-        </button>
+        <div className="submit-container">
+          <button type="submit" className="submit">
+            {mode === "login" ? "Login" : "Sign Up"}
+          </button>
 
-        {mode==="login"?
-          (
-            <p>
-              New user? <Link to="/register">Click here to register</Link>
-            </p>
-          ):(
-            <p>
-          Already have an account? <Link to="/">Click here to Login</Link>
-            </p>
-          )}  
-    </form>
-      </div>
-
-);
+          {mode === "login" ? (
+            <Link to="/register" className="submit alt-submit">
+              Register
+            </Link>
+          ) : (
+            <Link to="/" className="submit alt-submit">
+              Login
+            </Link>
+          )}
+        </div>
+      </form>
+    </div>
+  );
 }

@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 // API calls (replace localhost with backend URL)
 const api = {
-  getFarms: async () => fetch("http://localhost:5000/farms").then((r) => r.json()),
+  getFarms: async (userId) => fetch(`http://localhost:5000/farms?user_id=${userId}`).then((r) => r.json()),
   addFarm: async (data) =>
     fetch("http://localhost:5000/farms", {
       method: "POST",
@@ -22,7 +22,7 @@ const api = {
       body: JSON.stringify(data),
     }),
 
-  getEquipment: async () => fetch("http://localhost:5000/equipment").then((r) => r.json()),
+  getEquipment: async (userId) => fetch(`http://localhost:5000/equipment?user_id=${userId}`).then((r) => r.json()),
   addEquipment: async (data) =>
     fetch("http://localhost:5000/equipment", {
       method: "POST",
@@ -30,7 +30,7 @@ const api = {
       body: JSON.stringify(data),
     }),
 
-  getCrops: async () => fetch("http://localhost:5000/crops").then((r) => r.json()),
+  getCrops: async (userId) => fetch(`http://localhost:5000/crops?user_id=${userId}`).then((r) => r.json()),
   addCrop: async (data) =>
     fetch("http://localhost:5000/crops", {
       method: "POST",
@@ -38,7 +38,7 @@ const api = {
       body: JSON.stringify(data),
     }),
 
-  getLivestock: async () => fetch("http://localhost:5000/livestock").then((r) => r.json()),
+  getLivestock: async (userId) => fetch(`http://localhost:5000/livestock?user_id=${userId}`).then((r) => r.json()),
   addLivestock: async (data) =>
     fetch("http://localhost:5000/livestock", {
       method: "POST",
@@ -59,10 +59,10 @@ export default function FarmerProfile({ userId }) {
 
 
   const loadData = async () => {
-    const farms = await api.getFarms();
-    const equipment = await api.getEquipment();
-    const crops = await api.getCrops();
-    const livestock = await api.getLivestock();
+    const farms = await api.getFarms(userId);
+    const equipment = await api.getEquipment(userId);
+    const crops = await api.getCrops(userId);
+    const livestock = await api.getLivestock(userId);
     setData({ farms, equipment, crops, livestock });
     setLoading(false);
   };
@@ -79,7 +79,7 @@ export default function FarmerProfile({ userId }) {
         padding: "24px",
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        backgroundColor:"#343541",
+        backgroundColor:"#145a32",
         gap: "24px",
       }}
     >

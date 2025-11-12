@@ -13,6 +13,8 @@ export default function Register({ onLogin }) {
       const data = await res.json();
 
       if (res.ok) {
+          localStorage.setItem("user", JSON.stringify(data)); // save user
+
         // send userId and username to App
         onLogin(data.userid);
       } else {
